@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url:'https://github.com/midankalahon786/devops-assignment2.git'
+                git branch: 'main', url: 'https://github.com/midankalahon786/devops-assignment2.git'
             }
         }
 
@@ -19,10 +19,11 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                
-                    sh 'docker stop webapp || true'
-                    sh 'docker rm webapp || true'
-                    sh 'docker run -d --name webapp -p 8080:80 my-web-app'
+                    sh '''
+                        docker stop webapp || true
+                        docker rm webapp || true
+                        docker run -d --name webapp -p 8080:80 my-web-app
+                    '''
                 }
             }
         }
