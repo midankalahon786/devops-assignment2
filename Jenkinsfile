@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/midankalahon786/devops-assignment2.git'
+                git branch: 'main', url:'https://github.com/midankalahon786/devops-assignment2.git'
             }
         }
 
